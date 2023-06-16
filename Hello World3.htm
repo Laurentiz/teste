@@ -18,11 +18,11 @@
     });
 
     // Load and track marker
-    mindAR.loadMarker('path/to/marker.png').then((marker) => {
+    mindAR.loadMarker('marca.png').then((marker) => {
       marker.addEventListener('markerVisible', () => {
         // Marker is visible, render AR object
         const arObject = new MindAR.MindARObject({
-          url: 'path/to/3D/model.gltf', // Path to your 3D model file
+          url: 'marca2.png', // Path to your 3D model file
           scale: 0.1 // Adjust the scale of the object as needed
         });
 
