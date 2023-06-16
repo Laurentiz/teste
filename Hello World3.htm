@@ -1,11 +1,34 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Hello world</title>
-
+  <meta charset="UTF-8">
+  <title>mindAR Object Example</title>
+  <script src="https://mindar.app/scripts/mindar.min.js"></script>
 </head>
+<body>
+  <div id="mindarContainer"></div>
 
-<body background="rgb(0,0,0)" align=center>
-<h1>Hello World<h1>
+  <script>
+    // Initialize mindAR
+    const mindAR = new MindAR({
+      container: 'mindarContainer',
+      camera: {
+        resolution: '640x480' // Adjust as needed
+      }
+    });
 
+    // Load and track marker
+    mindAR.loadMarker('path/to/marker.png').then((marker) => {
+      marker.addEventListener('markerVisible', () => {
+        // Marker is visible, render AR object
+        const arObject = new MindAR.MindARObject({
+          url: 'path/to/3D/model.gltf', // Path to your 3D model file
+          scale: 0.1 // Adjust the scale of the object as needed
+        });
+
+        marker.add(arObject);
+      });
+    });
+  </script>
 </body>
 </html>
