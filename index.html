@@ -24,7 +24,22 @@
                 }
             }
             hiddenImg.innerHTML = imgs;
+ for (i=1;i<=6;i++) {
+                targets[i-1].addEventListener("targetFound", event => {
+                    const trgt = parseInt(event.target.id.charAt(6));
+                    maxCount = quant[trgt-1]
+                    
+                    interval = setInterval(function () {
+                        count += 1;
+                        if (count == maxCount) count = 1; 
+                        vids[trgt-1].setAttribute("src","#video"+trgt+"_"+count);
+                    },66); //modifique esse valor de 66 milissegundos para aumentar ou diminuir a velocidade do vídeo
+                });
 
+                targets[i-1].addEventListener("targetLost", event => {
+                    clearInterval(interval);
+                });
+            }
 
    
   </head>
