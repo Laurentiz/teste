@@ -4,6 +4,28 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-face-aframe.prod.js"></script>
+
+
+  <script type="text/javascript">
+        var count = 1;
+        var interval;
+
+        //quantidade de imagens em cada pasta de animação, na ordem
+        var quant = [6]
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            //carrega todas as imagens primeiro
+            const hiddenImg = document.querySelector('#hiddenImg');
+            var imgs = "";
+            for(q = 1;q<=quant.length;q++){
+                for(i=1;i<=quant[q-1];i++){
+                    imgs += "<img id='video"+q+"_"+i+"' src='./video"+q+"/im ("+i+").jpg' >";
+                }
+            }
+            hiddenImg.innerHTML = imgs;
+
+
    
   </head>
   <body>
